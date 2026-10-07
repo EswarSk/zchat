@@ -65,14 +65,16 @@ The first start downloads local embedding, reranking, and Docling models, so rea
 ## Use the UI
 
 1. Open http://localhost:8501. A new empty chat is created automatically.
-2. In **Documents**, choose evaluation/policy.pdf and evaluation/source.json, then click **Upload & index**. These are small demonstration sources, not the assessment's sample PDF.
-3. Watch each document under **Document status**. The UI refreshes while processing; wait for both to show READY. If a document shows FAILED, open its status for the error code and check API logs.
-4. In **Questionnaire**, upload evaluation/questionnaire.json and click **Generate batch answers**.
-5. Review the rows and click **Download answers JSON**. Expect AWS for cloud, 4 hours for RTO, $7,500 for monthly support, and Data-Not-Found for the CEO. The rows keep input order and contain id, question, answer, comments, and confidence.
-6. In **Chat**, ask an individual question such as “What is the RTO?” and inspect the page citation. Selecting a citation points the document preview to its source.
+2. In **Documents**, choose your PDF or JSON source file(s), then click **Upload & index**.
+3. Watch each document under **Document status**. The UI refreshes while processing; wait for the sources you want to use to show READY. If a document shows FAILED, open its status for the error code and check API logs.
+4. In **Questionnaire**, upload your JSON questions file and click **Generate batch answers**.
+5. Review the rows and click **Download answers JSON**. The rows keep input order and contain id, question, answer, comments, and confidence.
+6. In **Chat**, ask an individual question about your uploaded source and inspect its citation. Selecting a citation points the document preview to its source.
 7. Click **New chat** to start with no sources. Previous chats remain isolated in the backend.
 
 The document upload accepts PDF or JSON **sources**. The questionnaire upload accepts a separate JSON **questions file**. A READY source is required before answering. Missing question IDs are generated; provided IDs are preserved.
+
+For an optional smoke test, use evaluation/policy.pdf and evaluation/source.json as sources and evaluation/questionnaire.json as questions. With both sources READY, the expected answers are AWS, a four-hour RTO, a $7,500 monthly support fee, and Data-Not-Found for the CEO. These fixtures are examples; the upload flow is designed for other valid PDFs and JSON documents within the stated limits.
 
 ## Watch live logs
 
