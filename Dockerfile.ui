@@ -1,0 +1,12 @@
+FROM python:3.11.15-slim
+ENV PYTHONUNBUFFERED=1
+WORKDIR /app
+RUN pip install --no-cache-dir uv==0.12.23
+COPY pyproject.toml uv.lock ./
+RUN uv export --frozen --only-group ui --no-emit-project -o /tmp/ui-requirements.txt \
+    && uv pip install --system --no-cache -r /tmp/ui-requirements.txt
+COPY streamlit_app.py ./
+RUN useradd --create-home --uid 10001 zchat
+USER zchat
+EXPOSE 8501
+CMD ["streamlit", "run", "streamlit_app.py", "--server.address=0.0.0.0", "--server.maxUploadSize=50", "--browser.gatherUsageStats=false"]

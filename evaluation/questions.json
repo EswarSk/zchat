@@ -1,0 +1,22 @@
+{
+  "documents": ["policy.pdf", "source.json"],
+  "questions": [
+    {"question": "Which cloud provider is used?", "answerable": true, "document": "policy.pdf", "relevant_pages": [1], "answer_contains": ["AWS", "Amazon"]},
+    {"question": "Which infrastructure provider hosts production?", "answerable": true, "document": "policy.pdf", "relevant_pages": [1], "answer_contains": ["AWS", "Amazon"]},
+    {"question": "What region hosts production?", "answerable": true, "document": "policy.pdf", "relevant_pages": [1], "answer_contains": ["us-east-1"]},
+    {"question": "What is the launch code?", "answerable": true, "document": "policy.pdf", "relevant_pages": [1], "answer_contains": ["BETA-456"]},
+    {"question": "What is the incident notification SLA?", "answerable": true, "document": "policy.pdf", "relevant_pages": [2], "answer_contains": ["24"]},
+    {"question": "When must customers be told about confirmed security incidents?", "answerable": true, "document": "policy.pdf", "relevant_pages": [2], "answer_contains": ["24"]},
+    {"question": "What is the RTO?", "answerable": true, "document": "policy.pdf", "relevant_pages": [3], "answer_contains": ["4 hours"]},
+    {"question": "How long are backups retained?", "answerable": true, "document": "policy.pdf", "relevant_pages": [3], "answer_contains": ["35"]},
+    {"question": "What is the minimum password length?", "answerable": true, "document": "policy.pdf", "relevant_pages": [4], "answer_contains": ["14"]},
+    {"question": "Is MFA required for administrators?", "answerable": true, "document": "policy.pdf", "relevant_pages": [4], "answer_contains": ["MFA", "multi-factor", "Yes"]},
+    {"question": "What is the monthly support fee?", "answerable": true, "document": "source.json", "relevant_pages": [], "answer_contains": ["7,500"]},
+    {"question": "Who is the CEO?", "answerable": false, "relevant_pages": []},
+    {"question": "What is the annual revenue?", "answerable": false, "relevant_pages": []},
+    {"question": "What is the cafeteria menu?", "answerable": false, "relevant_pages": []},
+    {"question": "How many employees work here?", "answerable": false, "relevant_pages": []},
+    {"question": "What is the CFO's name?", "answerable": false, "relevant_pages": []},
+    {"question": "What was the stock price yesterday?", "answerable": false, "relevant_pages": []}
+  ]
+}

@@ -1,0 +1,6 @@
+[
+  {"id": "cloud", "question": "Which cloud provider is used?"},
+  {"id": "recovery", "question": "What is the RTO?"},
+  {"id": "billing", "question": "What is the monthly support fee?"},
+  {"id": "missing", "question": "Who is the CEO?"}
+]

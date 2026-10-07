@@ -1,0 +1,50 @@
+[project]
+name = "zchat"
+version = "0.1.0"
+description = "Session-scoped, grounded PDF and JSON question answering"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi==0.142.2",
+  "uvicorn==0.54.0",
+  "pydantic==2.13.5",
+  "pydantic-settings==2.15.0",
+  "python-multipart==0.0.32",
+  "docling==2.134.0",
+  "qdrant-client==1.19.1",
+  "fastembed==0.8.1",
+  "openai==3.24.0",
+  "tiktoken==0.14.0",
+  "pypdf==6.19.0",
+  "pypdfium2==5.14.0",
+  "torch==2.14.1",
+  "torchvision==0.29.1",
+]
+
+# CPU-only Linux wheels avoid shipping NVIDIA libraries in this CPU API.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{index = "pytorch-cpu", marker = "sys_platform == 'linux'"}]
+torchvision = [{index = "pytorch-cpu", marker = "sys_platform == 'linux'"}]
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "pytest-asyncio==1.4.0", "httpx==0.28.1", "ruff==0.16.10"]
+ui = [
+    "httpx==0.28.1",
+    "streamlit[pdf]==1.65.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = ["live: local-model integration tests (no paid OpenAI calls)"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
